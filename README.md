@@ -1,2 +1,72 @@
-# data engineering 
-Repository for homework tasks and final project on the subject "Data Engineering"
+# Инжиниринг данных — Козырева Евгения
+
+Репозиторий для домашних заданий по курсу «Инжиниринг данных».
+
+## ДЗ №1. Датасет
+
+**Ссылка на датасет (Google Drive):** https://drive.google.com/drive/folders/1vFFJhWS-nOrIbx0I3ZG4C9XKZfxFGq5H?usp=sharing
+
+
+### Источник
+
+**Hotel booking demand** — https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
+
+Исходная публикация: Antonio N., Almeida A., Nunes L. *Hotel booking demand datasets*. Data in Brief, vol. 22, February 2019.
+
+Данные о бронированиях двух отелей в Португалии (городской отель и курортный отель) за 2015–2017 годы, выгруженные из системы управления отелем. Персональные данные удалены.
+
+### Характеристики
+
+| | |
+|---|---|
+| Файл | `hotel_bookings.csv` |
+| Формат | CSV |
+| Строк | 119 390 |
+| Столбцов | 32 |
+| Размер | ~16 МБ |
+
+### Описание признаков
+
+| Столбец | Тип | Описание |
+|---|---|---|
+| hotel | категориальный | Тип отеля: City Hotel / Resort Hotel |
+| is_canceled | бинарный | Бронь отменена (1) или нет (0) |
+| lead_time | числовой | Дней между бронированием и датой заезда |
+| arrival_date_year | числовой | Год заезда |
+| arrival_date_month | категориальный | Месяц заезда (название) |
+| arrival_date_week_number | числовой | Номер недели заезда |
+| arrival_date_day_of_month | числовой | День месяца заезда |
+| stays_in_weekend_nights | числовой | Число ночей в выходные |
+| stays_in_week_nights | числовой | Число ночей в будни |
+| adults | числовой | Число взрослых |
+| children | числовой | Число детей |
+| babies | числовой | Число младенцев |
+| meal | категориальный | Тип питания (BB, HB, FB, SC, Undefined) |
+| country | категориальный | Страна гостя (код ISO) |
+| market_segment | категориальный | Сегмент рынка |
+| distribution_channel | категориальный | Канал продаж |
+| is_repeated_guest | бинарный | Повторный гость (1) или нет (0) |
+| previous_cancellations | числовой | Число прошлых отменённых броней гостя |
+| previous_bookings_not_canceled | числовой | Число прошлых неотменённых броней гостя |
+| reserved_room_type | категориальный | Забронированный тип номера (код) |
+| assigned_room_type | категориальный | Фактически выданный тип номера (код) |
+| booking_changes | числовой | Число изменений брони |
+| deposit_type | категориальный | Тип депозита |
+| agent | категориальный (ID) | ID турагента |
+| company | категориальный (ID) | ID компании-плательщика |
+| days_in_waiting_list | числовой | Дней в листе ожидания |
+| customer_type | категориальный | Тип клиента |
+| adr | числовой | Средняя стоимость ночи (Average Daily Rate) |
+| required_car_parking_spaces | числовой | Число запрошенных парковочных мест |
+| total_of_special_requests | числовой | Число особых пожеланий |
+| reservation_status | категориальный | Итоговый статус: Canceled / Check-Out / No-Show |
+| reservation_status_date | дата | Дата последнего изменения статуса |
+
+### Особенности («неоднозначные» данные)
+
+- пропуски в `children`, `country`, `agent`, `company` (в `company` — у подавляющего большинства записей);
+- пропуски записаны по-разному: пустые значения и строка `NULL`;
+- в `meal` есть два обозначения «без питания»: `SC` и `Undefined`;
+- дата заезда разбита на несколько столбцов, месяц записан словом;
+- ID агентов и компаний хранятся как числа, хотя по смыслу это категории;
+- встречаются аномалии: брони без гостей, выбросы в `adr`, повторяющиеся строки.
