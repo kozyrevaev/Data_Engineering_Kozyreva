@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Датасет скачивается скриптом, в репозиторий не коммитим 
+hotel_bookings.csv
+
+# Служебные файлы macOS
+.DS_Store

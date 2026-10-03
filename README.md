@@ -78,3 +78,44 @@
 - **Регрессия:** прогнозирование стоимости ночи (`adr`);
 - **Планирование загрузки:** оценка ожидаемого числа заездов с учётом отмен;
 - **Аналитика спроса:** сезонность по месяцам и неделям, сравнение городского и курортного отеля, доля отмен по каналам продаж, сегментам и странам, поведение повторных гостей.
+
+## ДЗ №2. Окружение и загрузка данных
+
+Окружение управляется с помощью [uv](https://docs.astral.sh/uv/). Зависимости описаны в `pyproject.toml`, точные версии зафиксированы в `uv.lock`.
+
+### 1. Установить uv
+
+macOS / Linux:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Windows (PowerShell):
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+Проверка: `uv --version`
+
+### 2. Склонировать репозиторий
+
+```bash
+git clone https://github.com/kozyrevaev/Data_Engineering_Kozyreva.git
+cd Data_Engineering_Kozyreva
+```
+
+### 3. Создать окружение и установить зависимости
+
+```bash
+uv sync --locked
+```
+
+Команда создаст папку `.venv` и установит версии пакетов строго по `uv.lock`. Если подходящей версии Python (3.12+) нет, uv скачает её сам.
+
+### 4. Запустить загрузчик
+
+```bash
+uv run python data_loader.py
+```
+
+Скрипт скачает датасет с Google Drive в файл `hotel_bookings.csv` (если его ещё нет) и выведет первые 10 строк. Сам файл с данными в репозиторий не коммитится — он указан в `.gitignore`.
