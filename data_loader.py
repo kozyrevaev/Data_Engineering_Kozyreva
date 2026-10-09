@@ -12,16 +12,13 @@ def load_data():
     if not os.path.exists(FILE_NAME):
         gdown.download(id=FILE_ID, output=FILE_NAME)
 
-    df = pd.read_csv(FILE_NAME)
+    df = pd.read_csv(FILE_NAME, na_values="NULL")
     print(df.head(10))
     return df
 
 
 def convert_types(df):
     df = df.copy()
-
-    # пропуски в датасете записаны словом "NULL" — превращаем их в настоящие пропуски
-    df = df.replace("NULL", pd.NA)
 
     # признаки по категориям
     category_cols = [
