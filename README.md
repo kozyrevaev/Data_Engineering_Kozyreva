@@ -119,3 +119,21 @@ uv run python data_loader.py
 ```
 
 Скрипт скачает датасет с Google Drive в файл `hotel_bookings.csv` (если его ещё нет) и выведет первые 10 строк. Сам файл с данными в репозиторий не коммитится — он указан в `.gitignore`.
+
+## ДЗ №3. Приведение типов и сохранение в Parquet
+
+Скрипт `data_loader.py` дополнен:
+
+- `convert_types(df)` — приводит столбцы к правильным типам: пропуски `NULL` → `NA`, текстовые признаки → `category`, ID агентов и компаний → `category`, флаги 0/1 → `bool`, целые числа → `int16` (`children` → `Int8`, т.к. есть пропуски), цена `adr` → `float32`, `reservation_status_date` → `datetime`;
+- `save_parquet(df)` — сохраняет результат в `hotel_bookings.parquet` (формат сохраняет типы и занимает меньше места, чем CSV).
+
+Для записи parquet добавлена зависимость `pyarrow`.
+
+Запуск:
+
+```bash
+uv sync --locked
+uv run python data_loader.py
+```
+
+Файл `hotel_bookings.parquet` в репозиторий не коммитится — он указан в `.gitignore`.
