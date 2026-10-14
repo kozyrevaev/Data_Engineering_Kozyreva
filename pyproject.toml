@@ -6,4 +6,5 @@ dependencies = [
     "gdown>=6.4.1",
     "pandas>=3.0.6",
     "pyarrow>=26.0.0",
+    "requests>=2.34.2",
 ]
