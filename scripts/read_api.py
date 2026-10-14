@@ -1,5 +1,5 @@
 import os
-
+from pathlib import Path
 import pandas as pd
 import requests
 
@@ -32,8 +32,9 @@ DAILY_VARIABLES = [
     "shortwave_radiation_sum",
 ]
 
-OUTPUT_DIR = "data"
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "weather_portugal.parquet")
+# путь считается от расположения скрипта, а не от папки, из которой его запустили
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "data"
+OUTPUT_FILE = OUTPUT_DIR / "weather_portugal.parquet"
 
 
 def fetch_city(city, lat, lon):
