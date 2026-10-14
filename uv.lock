@@ -180,6 +180,7 @@ dependencies = [
     { name = "gdown" },
     { name = "pandas" },
     { name = "pyarrow" },
+    { name = "requests" },
 ]
 
 [package.metadata]
@@ -187,6 +188,7 @@ requires-dist = [
     { name = "gdown", specifier = ">=6.4.1" },
     { name = "pandas", specifier = ">=3.0.6" },
     { name = "pyarrow", specifier = ">=26.0.0" },
+    { name = "requests", specifier = ">=2.34.2" },
 ]
 
 [[package]]
