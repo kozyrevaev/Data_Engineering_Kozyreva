@@ -137,3 +137,40 @@ uv run python data_loader.py
 ```
 
 Файл `hotel_bookings.parquet` в репозиторий не коммитится — он указан в `.gitignore`.
+## ДЗ №7. Запись датасета в удалённую БД
+
+Скрипт `scripts/write_to_db.py` берёт первые 100 строк датасета из `hotel_bookings.parquet` (его создаёт `data_loader.py`) и записывает их в таблицу удалённой БД PostgreSQL через SQLAlchemy и pandas (`to_sql`). После записи скрипт читает число строк обратно для проверки.
+
+Параметры подключения хранятся в файле `.env`, который **не коммитится** (указан в `.gitignore`). Шаблон без секретов — `.env.example`.
+
+### Запуск
+
+1. Установить зависимости:
+
+```bash
+uv sync --locked
+```
+
+2. Создать датасет (если `hotel_bookings.parquet` ещё нет):
+
+```bash
+uv run python data_loader.py
+```
+
+3. Скопировать шаблон и заполнить своими параметрами подключения:
+
+```bash
+cp .env.example .env
+```
+
+4. Запустить запись:
+
+```bash
+uv run python scripts/write_to_db.py
+```
+
+Ожидаемый вывод: `Таблица <имя>: записано 100 строк`.
+
+### Зависимости
+
+Для работы с БД добавлены `sqlalchemy`, `psycopg2-binary` (драйвер PostgreSQL) и `python-dotenv` (чтение `.env`).
