@@ -6,9 +6,12 @@ dependencies = [
     "gdown>=6.4.1",
     "matplotlib>=3.11.2",
     "pandas>=3.0.6",
+    "psycopg2-binary>=2.9.13",
     "pyarrow>=26.0.0",
+    "python-dotenv>=1.2.4",
     "requests>=2.34.2",
     "seaborn>=0.13.2",
+    "sqlalchemy>=2.1.8",
 ]
 
 [dependency-groups]
