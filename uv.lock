@@ -376,41 +376,39 @@ wheels = [
 [[package]]
 name = "data-engineering-kozyreva"
 version = "0.1.0"
-source = { editable = "." }
+source = { virtual = "." }
 dependencies = [
     { name = "gdown" },
+    { name = "matplotlib" },
     { name = "pandas" },
     { name = "psycopg2-binary" },
+    { name = "pyarrow" },
     { name = "python-dotenv" },
+    { name = "requests" },
+    { name = "seaborn" },
     { name = "sqlalchemy" },
 ]
 
 [package.dev-dependencies]
 dev = [
     { name = "ipykernel" },
-    { name = "matplotlib" },
-    { name = "pyarrow" },
-    { name = "requests" },
-    { name = "seaborn" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "gdown", specifier = ">=6.4.1" },
+    { name = "matplotlib", specifier = ">=3.11.2" },
     { name = "pandas", specifier = ">=3.0.6" },
     { name = "psycopg2-binary", specifier = ">=2.9.13" },
+    { name = "pyarrow", specifier = ">=26.0.0" },
     { name = "python-dotenv", specifier = ">=1.2.4" },
+    { name = "requests", specifier = ">=2.34.2" },
+    { name = "seaborn", specifier = ">=0.13.2" },
     { name = "sqlalchemy", specifier = ">=2.1.8" },
 ]
 
 [package.metadata.requires-dev]
-dev = [
-    { name = "ipykernel", specifier = ">=7.4.0" },
-    { name = "matplotlib", specifier = ">=3.11.2" },
-    { name = "pyarrow", specifier = ">=26.0.0" },
-    { name = "requests", specifier = ">=2.34.2" },
-    { name = "seaborn", specifier = ">=0.13.2" },
-]
+dev = [{ name = "ipykernel", specifier = ">=7.4.0" }]
 
 [[package]]
 name = "debugpy"
